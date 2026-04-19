@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Herramientas Digitales LD — Herramientas descargables para profesionales</title>
+<meta name="description" content="Herramientas digitales descargables para profesionales en España. Sin suscripción, sin instalación, sin cuenta. Pago único.">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --dark: #0f172a;
+    --dark2: #1e293b;
+    --slate: #334155;
+    --muted: #64748b;
+    --border: #e2e8f0;
+    --bg: #f8fafc;
+    --white: #ffffff;
+    --text: #1e293b;
+    --green: #059669;
+    --green-light: #d1fae5;
+    --indigo: #6366f1;
+    --indigo-light: #e0e7ff;
+    --navy: #1e3a5f;
+    --amber: #d97706;
+    --amber-light: #fef3c7;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+  }
+
+  /* HEADER */
+  header {
+    background: var(--dark);
+    padding: 0 24px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .header-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 58px;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+  .brand-icon {
+    width: 32px; height: 32px;
+    background: var(--indigo);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    font-weight: 800;
+    color: white;
+    letter-spacing: -1px;
+  }
+  .brand-name {
+    font-size: 15px;
+    font-weight: 700;
+    color: white;
+  }
+  .brand-sub {
+    font-size: 11px;
+    color: rgba(255,255,255,0.35);
+    margin-top: 1px;
+  }
+  .header-badge {
+    font-size: 11px;
+    color: rgba(255,255,255,0.4);
+    background: rgba(255,255,255,0.05);
+    padding: 4px 12px;
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+
+  /* HERO */
+  .hero {
+    background: var(--dark);
+    padding: 64px 24px 72px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--indigo), var(--green));
+  }
+  .hero-dot-grid {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(99,102,241,0.15) 1px, transparent 1px);
+    background-size: 28px 28px;
+    pointer-events: none;
+  }
+  .hero-content { position: relative; z-index: 1; }
+  .hero-label {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--indigo);
+    background: rgba(99,102,241,0.12);
+    border: 1px solid rgba(99,102,241,0.2);
+    padding: 5px 14px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-size: clamp(28px, 5vw, 44px);
+    font-weight: 900;
+    color: white;
+    letter-spacing: -1.5px;
+    line-height: 1.1;
+    margin-bottom: 16px;
+  }
+  .hero h1 span { color: var(--indigo); }
+  .hero p {
+    font-size: 16px;
+    color: rgba(255,255,255,0.5);
+    max-width: 460px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  /* PILLS */
+  .pills {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 28px;
+  }
+  .pill {
+    font-size: 12px;
+    padding: 5px 14px;
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.1);
+    color: rgba(255,255,255,0.5);
+    background: rgba(255,255,255,0.04);
+  }
+
+  /* PRODUCTOS */
+  .productos {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 56px 24px;
+  }
+  .section-title {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 24px;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 20px;
+  }
+
+  /* CARD */
+  .card {
+    background: white;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    transition: transform 0.18s, box-shadow 0.18s;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+  .card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.1);
+  }
+
+  /* Cover mockup */
+  .card-cover {
+    height: 190px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .cover-resenas {
+    background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);
+  }
+  .cover-psicoficha {
+    background: linear-gradient(135deg, #162d4a 0%, #1e3a5f 100%);
+  }
+  .cover-accent-left {
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 5px;
+  }
+  .cover-accent-top {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+  }
+  .cover-dots {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(255,255,255,0.08) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+  .cover-inner {
+    position: relative;
+    z-index: 1;
+    text-align: left;
+    padding: 0 28px;
+    width: 100%;
+  }
+  .cover-eyebrow {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    opacity: 0.6;
+    color: white;
+  }
+  .cover-title {
+    font-size: 30px;
+    font-weight: 900;
+    color: white;
+    letter-spacing: -1px;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .cover-subtitle {
+    font-size: 12px;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.4;
+  }
+  .cover-tags {
+    display: flex;
+    gap: 6px;
+    margin-top: 14px;
+    flex-wrap: wrap;
+  }
+  .cover-tag {
+    font-size: 9px;
+    font-weight: 600;
+    padding: 3px 9px;
+    border-radius: 4px;
+    border: 1px solid;
+  }
+  .tag-g { color: #34d399; border-color: rgba(52,211,153,0.3); background: rgba(52,211,153,0.08); }
+  .tag-i { color: #a5b4fc; border-color: rgba(165,180,252,0.3); background: rgba(165,180,252,0.08); }
+
+  /* Card body */
+  .card-body { padding: 22px 24px 24px; }
+  .card-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  .card-name {
+    font-size: 17px;
+    font-weight: 800;
+    color: var(--text);
+    letter-spacing: -0.5px;
+  }
+  .card-niche {
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+  .card-price {
+    text-align: right;
+    flex-shrink: 0;
+  }
+  .price-from { font-size: 10px; color: var(--muted); }
+  .price-val {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--text);
+    letter-spacing: -0.5px;
+  }
+  .card-desc {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.55;
+    margin-bottom: 16px;
+  }
+
+  /* Features */
+  .features {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 18px;
+  }
+  .feature {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12.5px;
+    color: var(--slate);
+  }
+  .feature-dot {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* Versiones */
+  .versiones {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 18px;
+  }
+  .version {
+    flex: 1;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 12px;
+  }
+  .version.destacada {
+    border-color: var(--indigo);
+    background: var(--indigo-light);
+  }
+  .v-name { font-size: 10px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; }
+  .version.destacada .v-name { color: var(--indigo); }
+  .v-price { font-size: 16px; font-weight: 800; color: var(--text); margin: 2px 0; }
+  .v-desc { font-size: 10px; color: var(--muted); line-height: 1.3; }
+  .version.destacada .v-desc { color: var(--indigo); }
+
+  /* CTA */
+  .btn {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: opacity 0.15s;
+    letter-spacing: 0.2px;
+  }
+  .btn:hover { opacity: 0.88; }
+  .btn-indigo { background: var(--indigo); color: white; }
+  .btn-navy { background: var(--navy); color: white; }
+
+  /* FOOTER */
+  footer {
+    background: var(--dark);
+    padding: 32px 24px;
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  footer p {
+    font-size: 12px;
+    color: rgba(255,255,255,0.25);
+    line-height: 1.6;
+  }
+  footer a { color: rgba(255,255,255,0.4); text-decoration: none; }
+  footer a:hover { color: rgba(255,255,255,0.7); }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    .grid { grid-template-columns: 1fr; }
+    .hero { padding: 48px 20px 56px; }
+    .productos { padding: 40px 20px; }
+    .versiones { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <a href="#" class="brand">
+      <div class="brand-icon">HD</div>
+      <div>
+        <div class="brand-name">Herramientas Digitales LD</div>
+        <div class="brand-sub">Herramientas descargables para profesionales</div>
+      </div>
+    </a>
+    <span class="header-badge">España</span>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-dot-grid"></div>
+  <div class="hero-content">
+    <div class="hero-label">Pago único · Sin suscripción</div>
+    <h1>Herramientas que <span>funcionan</span><br>sin complicaciones</h1>
+    <p>Archivos descargables para profesionales en España. Sin instalación, sin cuenta, sin servidores. Abres, usas y listo.</p>
+    <div class="pills">
+      <span class="pill">Sin suscripción mensual</span>
+      <span class="pill">Datos en tu dispositivo</span>
+      <span class="pill">Funciona offline</span>
+      <span class="pill">Pago único</span>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTOS -->
+<section class="productos">
+  <div class="section-title">Herramientas disponibles</div>
+
+  <div class="grid">
+
+    <!-- PRODUCTO 1: Reseñas Google -->
+    <a class="card" href="https://hdld.gumroad.com/l/kkyjfk" target="_blank" rel="noopener">
+      <div class="card-cover cover-resenas">
+        <div class="cover-accent-left" style="background:#10b981"></div>
+        <div class="cover-accent-top" style="background:linear-gradient(90deg,#10b981,#059669)"></div>
+        <div class="cover-dots"></div>
+        <div class="cover-inner">
+          <div class="cover-eyebrow">Para negocios locales</div>
+          <div class="cover-title">Reseñas<br>Google</div>
+          <div class="cover-subtitle">Generador de respuestas<br>profesionales en 30 segundos</div>
+          <div class="cover-tags">
+            <span class="cover-tag tag-g">30 tipos de negocio</span>
+            <span class="cover-tag tag-i">Sin instalación</span>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-header">
+          <div>
+            <div class="card-name">Generador de Respuestas a Reseñas Google</div>
+            <div class="card-niche">Negocios locales · Autónomos · PYME</div>
+          </div>
+          <div class="card-price">
+            <div class="price-from">desde</div>
+            <div class="price-val">7€</div>
+          </div>
+        </div>
+        <p class="card-desc">Genera respuestas personalizadas a reseñas de Google según la puntuación, el tipo de negocio y el tono. Sin copiar siempre la misma frase.</p>
+        <div class="features">
+          <div class="feature"><div class="feature-dot" style="background:#059669"></div>30 tipos de negocio cubiertos</div>
+          <div class="feature"><div class="feature-dot" style="background:#059669"></div>Respuestas para reseñas positivas y negativas</div>
+          <div class="feature"><div class="feature-dot" style="background:#059669"></div>Funciona sin internet, sin cuenta</div>
+        </div>
+        <div class="versiones">
+          <div class="version">
+            <div class="v-name">Básica</div>
+            <div class="v-price">7€</div>
+            <div class="v-desc">Archivo HTML listo para usar</div>
+          </div>
+          <div class="version destacada">
+            <div class="v-name">Estándar</div>
+            <div class="v-price">14€</div>
+            <div class="v-desc">HTML + Guía PDF + Plantilla email equipo</div>
+          </div>
+        </div>
+        <span class="btn btn-navy">Ver herramienta</span>
+      </div>
+    </a>
+
+    <!-- PRODUCTO 2: PsicoFicha -->
+    <a class="card" href="https://hdld.gumroad.com/l/fajdid" target="_blank" rel="noopener">
+      <div class="card-cover cover-psicoficha">
+        <div class="cover-accent-left" style="background:#6366f1"></div>
+        <div class="cover-accent-top" style="background:linear-gradient(90deg,#059669,#34d399)"></div>
+        <div class="cover-dots"></div>
+        <div class="cover-inner">
+          <div class="cover-eyebrow">Para psicólogos en consulta privada</div>
+          <div class="cover-title">Psico<span style="color:#6366f1">Ficha</span></div>
+          <div class="cover-subtitle">Registro de sesiones profesional<br>Ley 41/2002 · RGPD</div>
+          <div class="cover-tags">
+            <span class="cover-tag tag-g">Ley 41/2002</span>
+            <span class="cover-tag tag-g">RGPD</span>
+            <span class="cover-tag tag-i">Offline</span>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-header">
+          <div>
+            <div class="card-name">PsicoFicha — Registro de Sesiones</div>
+            <div class="card-niche">Psicólogos · Terapeutas · Consulta privada</div>
+          </div>
+          <div class="card-price">
+            <div class="price-from">desde</div>
+            <div class="price-val">7€</div>
+          </div>
+        </div>
+        <p class="card-desc">Gestiona pacientes y documenta sesiones con escala de ánimo, nivel de riesgo, técnicas e intervenciones. Datos 100% en tu dispositivo.</p>
+        <div class="features">
+          <div class="feature"><div class="feature-dot" style="background:#6366f1"></div>Código anonimizado automático (P-001, P-002…)</div>
+          <div class="feature"><div class="feature-dot" style="background:#6366f1"></div>Cumple Ley 41/2002 y RGPD</div>
+          <div class="feature"><div class="feature-dot" style="background:#6366f1"></div>Sin suscripción mensual (alternativa a eholo, Clinic Cloud)</div>
+        </div>
+        <div class="versiones">
+          <div class="version">
+            <div class="v-name">Base</div>
+            <div class="v-price">7€</div>
+            <div class="v-desc">Archivo HTML listo para usar</div>
+          </div>
+          <div class="version destacada">
+            <div class="v-name">Estándar</div>
+            <div class="v-price">14€</div>
+            <div class="v-desc">HTML + Guía Documentación Clínica PDF</div>
+          </div>
+        </div>
+        <span class="btn btn-indigo">Ver herramienta</span>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>
+    Herramientas Digitales LD · Herramientas descargables para profesionales en España<br>
+    <a href="mailto:info@herramientasdigitalesld.com">Contacto</a> ·
+    <a href="https://hdld.gumroad.com" target="_blank">Gumroad</a>
+  </p>
+</footer>
+
+</body>
+</html>
